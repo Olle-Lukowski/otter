@@ -5,7 +5,9 @@
     // this is here because Zig requires it.
     .version = "0.0.0",
 
-    .dependencies = .{},
+    .dependencies = .{
+        .ecs = .{ .path = "modules/ecs" },
+    },
 
     .paths = .{
         "src",
