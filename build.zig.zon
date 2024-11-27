@@ -1,0 +1,22 @@
+.{
+    .name = "otter",
+
+    // See `package.json` for the version info,
+    // this is here because Zig requires it.
+    .version = "0.0.0",
+
+    .dependencies = .{},
+
+    .paths = .{
+        "src",
+        "build.zig",
+        "build.zig.zon",
+        "LICENSE-APACHE",
+        "LICENSE-MIT",
+
+        // Since this manages our version info,
+        // this matters for our final hash.
+        "package.json",
+        "package-lock.json",
+    },
+}

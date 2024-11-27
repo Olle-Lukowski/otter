@@ -1,2 +1,6 @@
 # NPM
 node_modules/
+
+# Zig
+zig-out/
+.zig-cache/
