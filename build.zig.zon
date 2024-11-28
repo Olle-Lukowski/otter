@@ -1,7 +1,7 @@
 .{
     .name = "otter",
 
-    // See `package.json` for the version info,
+    // See `CHANGELOG.md` for the version info,
     // this is here because Zig requires it.
     .version = "0.0.0",
 
@@ -19,7 +19,6 @@
 
         // Since this manages our version info,
         // this matters for our final hash.
-        "package.json",
-        "package-lock.json",
+        "CHANGELOG.md",
     },
 }
