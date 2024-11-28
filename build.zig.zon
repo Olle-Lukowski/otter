@@ -11,6 +11,7 @@
 
     .paths = .{
         "src",
+        "modules",
         "build.zig",
         "build.zig.zon",
         "LICENSE-APACHE",
