@@ -5,7 +5,7 @@ pub fn build(b: *std.Build) void {
 
     const optimize = b.standardOptimizeOption(.{});
 
-    const mod = b.createModule(.{
+    const mod = b.addModule("otter", .{
         .root_source_file = b.path("src/root.zig"),
         .target = target,
         .optimize = optimize,
