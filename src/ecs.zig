@@ -3,6 +3,8 @@
 //! As well as amazing cache-locality if implemented properly.
 //! Which should allow for great performance on most systems.
 
+const entity_mod = @import("ecs/entity.zig");
+
 /// An `Entity` is an opaque identifier for any "thing" in the game.
 /// Generally, we organize `Entity`s into three categories:
 ///
@@ -15,6 +17,8 @@
 /// an `Entity`, you can also add a plain `Entity`. This is often called a "tag" (a data-less component).
 /// On top of that, systems can contain components, and can be created and deleted dynamically.
 pub const Entity = packed struct(u64) {
+    pub const Index = entity_mod.Index;
+
     /// The type of the `id` part of an `Entity`.
     /// One value is reserved to indicate an invalid `Entity`,
     /// this is to prevent any memory overhead from using `?Entity`.
@@ -42,9 +46,21 @@ pub const Entity = packed struct(u64) {
     id: Id = .invalid,
     /// The generation of this `Entity`. This gets incremented every time the `id` gets re-used.
     generation: u32 = 0,
+
+    /// Return this `Entity` with the generation incremented.
+    pub fn next(self: Entity) Entity {
+        return .{
+            .id = self.id,
+            .generation = self.generation +% 1,
+        };
+    }
 };
 
 const testing = @import("std").testing;
+
+test {
+    _ = &entity_mod;
+}
 
 test "Entity Id get" {
     const e: Entity = .{};
